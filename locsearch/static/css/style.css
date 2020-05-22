@@ -16,7 +16,7 @@ table tr {
 }
 
 html, body {
-    background-color: yellow;
+    background-color: yellow; /* bepa */
     display: flex;
     justify-content: center;
     align-items: center;
