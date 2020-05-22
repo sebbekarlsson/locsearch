@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <script type='text/javascript' src='{{ url_for('static', filename='js/request.js') }}'></script>
+    <script type='text/javascript' src='{{ url_for('static', filename='js/search.js') }}'></script>
+{% endblock %}
+
+{% block body %}
+    <section>
+        <input v-on:keyup="onSearch" type='text'/>
+    </section>
+    <section>
+        <table v-if="results.length > 0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in results">
+                    <td>
+                        {% raw %}{{ item.geonameid }}{% endraw %}
+                    </td>
+                    <td>
+                        {% raw %}{{ item.name }}{% endraw %}
+                    </td>
+                    <td>
+                        {% raw %}{{ item.population }}{% endraw %}
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </section>
+{% endblock %}
